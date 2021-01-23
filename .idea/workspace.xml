@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bf49a049-4b20-4ce5-ad0c-821737c93fb8" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Works\Softwares\Module\maven\maven_repository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../Module/maven/apache-maven-3.5.2" />
+        <option name="userSettingsFile" value="D:\Works\Softwares\Module\maven\apache-maven-3.5.2\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="vmOptions" value="-DarchetypeCatalog=internal" />
+  </component>
+  <component name="ProjectId" id="1nHVZhEbwwGp7bZSf3AOPY4IjQX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/rpc-api/src/main/java/io/niceseason/rpc/api" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Works\Softwares\Programe\IDEA\MyRpc-Framework\rpc-api\src\main\java\io\niceseason\rpc\api" />
+      <recent name="D:\Works\Softwares\Programe\IDEA\MyRpc-Framework\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Works\Softwares\Programe\IDEA\MyRpc-Framework\java-demo\src\main\java" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.TestClient">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.demo.proxy.Client" />
+      <module name="java-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.niceseason.rpc.demo.proxy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RpcDemoClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.demo.simpleRpc.RpcDemoClient" />
+      <module name="java-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.niceseason.rpc.demo.simpleRpc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RpcDemoServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.demo.simpleRpc.RpcDemoServer" />
+      <module name="java-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.niceseason.rpc.demo.simpleRpc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.client.TestClient" />
+      <module name="rpc-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.niceseason.rpc.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.server.TestServer" />
+      <module name="rpc-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.niceseason.rpc.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestClient" />
+        <item itemvalue="Application.TestServer" />
+        <item itemvalue="Application.RpcDemoClient" />
+        <item itemvalue="Application.RpcDemoServer" />
+        <item itemvalue="Application.Client" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bf49a049-4b20-4ce5-ad0c-821737c93fb8" name="Default Changelist" comment="" />
+      <created>1611047059330</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611047059330</updated>
+      <workItem from="1611047062483" duration="3222000" />
+      <workItem from="1611069975135" duration="2495000" />
+      <workItem from="1611115127173" duration="2498000" />
+      <workItem from="1611153781004" duration="5312000" />
+      <workItem from="1611202443576" duration="2624000" />
+      <workItem from="1611222799956" duration="1791000" />
+      <workItem from="1611316351674" duration="144000" />
+      <workItem from="1611316506650" duration="1546000" />
+      <workItem from="1611365944332" duration="326000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="233" y="39" key="#Project_Structure" timestamp="1611117830946">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="233" y="39" key="#Project_Structure/0.0.1280.760@0.0.1280.760" timestamp="1611117830946" />
+    <state x="342" y="49" key="#SocketObjectClient" timestamp="1611224184802">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="342" y="49" key="#SocketObjectClient/0.0.1280.760@0.0.1280.760" timestamp="1611224184802" />
+    <state x="96" y="35" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611224178269">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="96" y="35" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.760@0.0.1280.760" timestamp="1611224178269" />
+    <state x="446" y="90" key="#com.intellij.ide.util.MemberChooser" timestamp="1611317448160">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="446" y="90" key="#com.intellij.ide.util.MemberChooser/0.0.1280.760@0.0.1280.760" timestamp="1611317448160" />
+    <state x="400" y="305" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1611228589344">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="400" y="305" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.760@0.0.1280.760" timestamp="1611228589344" />
+    <state width="1238" height="190" key="GridCell.Tab.0.bottom" timestamp="1611366285349">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="190" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1611366285349" />
+    <state width="1238" height="190" key="GridCell.Tab.0.center" timestamp="1611366285349">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="190" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1611366285349" />
+    <state width="1238" height="190" key="GridCell.Tab.0.left" timestamp="1611366285349">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="190" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1611366285349" />
+    <state width="1238" height="190" key="GridCell.Tab.0.right" timestamp="1611366285349">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="190" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1611366285349" />
+    <state width="1238" height="232" key="GridCell.Tab.1.bottom" timestamp="1611318054003">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="232" key="GridCell.Tab.1.bottom/0.0.1280.760@0.0.1280.760" timestamp="1611318054003" />
+    <state width="1238" height="232" key="GridCell.Tab.1.center" timestamp="1611318054002">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="232" key="GridCell.Tab.1.center/0.0.1280.760@0.0.1280.760" timestamp="1611318054002" />
+    <state width="1238" height="232" key="GridCell.Tab.1.left" timestamp="1611318054002">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="232" key="GridCell.Tab.1.left/0.0.1280.760@0.0.1280.760" timestamp="1611318054002" />
+    <state width="1238" height="232" key="GridCell.Tab.1.right" timestamp="1611318054002">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="232" key="GridCell.Tab.1.right/0.0.1280.760@0.0.1280.760" timestamp="1611318054002" />
+    <state x="405" y="83" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1611316377166">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="405" y="83" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1280.760@0.0.1280.760" timestamp="1611316377166" />
+    <state x="6" y="75" key="new project wizard" timestamp="1611115586303">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="6" y="75" key="new project wizard/0.0.1280.760@0.0.1280.760" timestamp="1611115586303" />
+    <state x="306" y="85" width="672" height="678" key="search.everywhere.popup" timestamp="1611203743841">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="306" y="85" width="672" height="678" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1611203743841" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rpc-core/src/main/java/io/niceseason/rpc/core/server/WorkThread.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/java-demo/src/main/java/io/niceseason/rpc/demo/simpleRpc/RpcDemoClient.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="request.parameterType" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MyRpc_Framework$TestClient.ic" NAME="TestClient Coverage Results" MODIFIED="1611158348816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.niceseason.rpc.client.*</FILTER>
+    </SUITE>
+  </component>
+</project>
