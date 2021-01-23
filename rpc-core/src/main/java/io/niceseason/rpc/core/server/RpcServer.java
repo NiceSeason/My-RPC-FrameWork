@@ -13,8 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 public class RpcServer {
 
@@ -23,7 +22,12 @@ public class RpcServer {
     private ExecutorService executorService;
 
     public RpcServer() {
-         executorService = Executors.newFixedThreadPool(10);
+        int coreSize = 10;
+        int maxSize =50;
+        long keepTime = 60;
+        BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(100);
+        ThreadFactory threadFactory = Executors.defaultThreadFactory();
+        executorService = new ThreadPoolExecutor(coreSize, maxSize, keepTime, TimeUnit.SECONDS, workQueue, threadFactory);
     }
 
     public void register(int port, Object service) {
@@ -32,21 +36,7 @@ public class RpcServer {
             Socket socket;
             while ((socket = serverSocket.accept()) != null) {
                 logger.info("接收到客户端请求:"+socket.getRemoteSocketAddress());
-//                executorService.execute(new WorkThread(socket, service));
-                try (
-                        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-                        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-                ) {
-                    RpcRequest request = (RpcRequest) in.readObject();
-                    Method method = service.getClass().getMethod(request.getMethodName(), request.getParameterType());
-                    Object returnObject = method.invoke(service, request.getParameters());
-                    RpcResponse<Object> success = RpcResponse.success(returnObject);
-                    logger.info("获取到返回对象{}",success);
-                    out.writeObject(success);
-                    out.flush();
-                } catch (InvocationTargetException | NoSuchMethodException | IllegalAccessException | ClassNotFoundException e) {
-                    logger.error("执行代理方法时有出错误::", e);
-                }
+                executorService.execute(new WorkThread(socket, service));
             }
         } catch (IOException e) {
             logger.error("连接客户端时有错误发生:", e);
