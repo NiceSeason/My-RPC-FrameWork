@@ -2,6 +2,7 @@ package io.niceseason.rpc.core.server;
 
 import io.niceseason.rpc.common.entity.RpcRequest;
 import io.niceseason.rpc.common.entity.RpcResponse;
+import io.niceseason.rpc.core.registry.ServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
@@ -11,18 +12,19 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;
 
-public class WorkThread implements Runnable {
+public class RequestHandlerThread implements Runnable {
 
-    private static final Logger logger = LoggerFactory.getLogger(WorkThread.class);
+    private static final Logger logger = LoggerFactory.getLogger(RequestHandlerThread.class);
 
 
     private Socket socket;
 
-    private Object service;
+    private ServiceRegistry serviceRegistry;
 
-    public WorkThread(Socket socket, Object service) {
+
+    public RequestHandlerThread(Socket socket, ServiceRegistry serviceRegistry) {
+        this.serviceRegistry = serviceRegistry;
         this.socket = socket;
-        this.service = service;
     }
 
     @Override
@@ -33,11 +35,13 @@ public class WorkThread implements Runnable {
                 ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
         ) {
             RpcRequest request = (RpcRequest) in.readObject();
-            Method method = service.getClass().getMethod(request.getMethodName(), request.getParameterType());
-            Object returnObject = method.invoke(service, request.getParameters());
+            String serviceName = request.getInterfaceName();
+            Object service = serviceRegistry.getService(serviceName);
+            RequestHandler requestHandler = new RequestHandler();
+            Object returnObject=requestHandler.handler(request, service);
             out.writeObject(RpcResponse.success(returnObject));
             out.flush();
-        } catch (IOException | ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+        } catch (IOException | ClassNotFoundException e) {
             logger.error("调用服务器对象时有错误产生", e);
         }
     }

@@ -1,16 +1,10 @@
 package io.niceseason.rpc.core.server;
 
-import io.niceseason.rpc.common.entity.RpcRequest;
-import io.niceseason.rpc.common.entity.RpcResponse;
-import io.niceseason.rpc.core.client.RpcClient;
+import io.niceseason.rpc.core.registry.ServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.*;
@@ -21,7 +15,10 @@ public class RpcServer {
 
     private ExecutorService executorService;
 
-    public RpcServer() {
+    private ServiceRegistry serviceRegistry;
+
+    public RpcServer(ServiceRegistry serviceRegistry) {
+        this.serviceRegistry = serviceRegistry;
         int coreSize = 10;
         int maxSize =50;
         long keepTime = 60;
@@ -30,13 +27,13 @@ public class RpcServer {
         executorService = new ThreadPoolExecutor(coreSize, maxSize, keepTime, TimeUnit.SECONDS, workQueue, threadFactory);
     }
 
-    public void register(int port, Object service) {
+    public void start(int port) {
         try(ServerSocket serverSocket=new ServerSocket(port)){
             logger.info("服务器正在启动...");
             Socket socket;
             while ((socket = serverSocket.accept()) != null) {
                 logger.info("接收到客户端请求:"+socket.getRemoteSocketAddress());
-                executorService.execute(new WorkThread(socket, service));
+                executorService.execute(new RequestHandlerThread(socket,serviceRegistry));
             }
         } catch (IOException e) {
             logger.error("连接客户端时有错误发生:", e);
