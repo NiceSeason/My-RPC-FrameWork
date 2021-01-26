@@ -12,6 +12,7 @@ import io.niceseason.rpc.core.RpcClient;
 import io.niceseason.rpc.core.codec.CommonDecoder;
 import io.niceseason.rpc.core.codec.CommonEncoder;
 import io.niceseason.rpc.core.serializer.JsonSerializer;
+import io.niceseason.rpc.core.serializer.KryoSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,7 +43,7 @@ public class NettyClient implements RpcClient {
                     protected void initChannel(SocketChannel ch) throws Exception {
                         ChannelPipeline pipeline = ch.pipeline();
                         pipeline.addLast(new CommonDecoder())
-                                .addLast(new CommonEncoder(new JsonSerializer()))
+                                .addLast(new CommonEncoder(new KryoSerializer()))
                                 .addLast(new NettyClientHandler());
                     }
                 });

@@ -33,12 +33,7 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.30</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>4.1.58.Final</version>
-        </dependency>
+
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
