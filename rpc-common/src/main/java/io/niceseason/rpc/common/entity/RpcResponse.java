@@ -2,9 +2,11 @@ package io.niceseason.rpc.common.entity;
 
 import io.niceseason.rpc.common.enumeration.ResponseStatus;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+@NoArgsConstructor
 @Data
 public class RpcResponse<T> implements Serializable {
 

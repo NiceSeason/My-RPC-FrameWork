@@ -2,6 +2,7 @@ package io.niceseason.rpc.api;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.io.Serializable;
  */
 @ToString
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class HelloObject implements Serializable {
 

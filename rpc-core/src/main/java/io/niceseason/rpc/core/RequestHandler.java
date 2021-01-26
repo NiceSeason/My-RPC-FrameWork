@@ -1,4 +1,4 @@
-package io.niceseason.rpc.core.server;
+package io.niceseason.rpc.core;
 
 import io.niceseason.rpc.common.entity.RpcRequest;
 import org.slf4j.Logger;

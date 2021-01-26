@@ -1,8 +1,9 @@
-package io.niceseason.rpc.core.client;
+package io.niceseason.rpc.core.socket.client;
 
 
 import io.niceseason.rpc.common.entity.RpcRequest;
-import io.niceseason.rpc.common.entity.RpcResponse;
+import io.niceseason.rpc.core.RpcClient;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,11 +12,17 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-public class RpcClient {
+@AllArgsConstructor
+public class SocketClient implements RpcClient {
 
-    private static final Logger logger = LoggerFactory.getLogger(RpcClient.class);
+    private static final Logger logger = LoggerFactory.getLogger(SocketClient.class);
 
-    public Object sendRequest(RpcRequest request, String host, int port) {
+    private String host;
+
+    private int port;
+
+    @Override
+    public Object sendRequest(RpcRequest request) {
         Object response = null;
         try (
                 Socket socket = new Socket(host, port);
@@ -30,5 +37,4 @@ public class RpcClient {
         }
         return response;
     }
-
 }

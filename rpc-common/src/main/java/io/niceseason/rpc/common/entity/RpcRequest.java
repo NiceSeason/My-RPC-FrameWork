@@ -3,10 +3,12 @@ package io.niceseason.rpc.common.entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Getter
 public class RpcRequest implements Serializable {

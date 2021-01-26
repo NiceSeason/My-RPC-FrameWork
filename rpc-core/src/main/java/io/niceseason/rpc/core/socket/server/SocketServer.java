@@ -1,5 +1,6 @@
-package io.niceseason.rpc.core.server;
+package io.niceseason.rpc.core.socket.server;
 
+import io.niceseason.rpc.core.RpcServer;
 import io.niceseason.rpc.core.registry.ServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,15 +10,15 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.*;
 
-public class RpcServer {
+public class SocketServer implements RpcServer {
 
-    private static final Logger logger = LoggerFactory.getLogger(RpcServer.class);
+    private static final Logger logger = LoggerFactory.getLogger(SocketServer.class);
 
     private ExecutorService executorService;
 
     private ServiceRegistry serviceRegistry;
 
-    public RpcServer(ServiceRegistry serviceRegistry) {
+    public SocketServer(ServiceRegistry serviceRegistry) {
         this.serviceRegistry = serviceRegistry;
         int coreSize = 10;
         int maxSize =50;

@@ -4,11 +4,14 @@ import io.niceseason.rpc.api.Book;
 import io.niceseason.rpc.api.BookStore;
 import io.niceseason.rpc.api.HelloObject;
 import io.niceseason.rpc.api.HelloService;
-import io.niceseason.rpc.core.client.RpcClientProxy;
+import io.niceseason.rpc.core.RpcClient;
+import io.niceseason.rpc.core.RpcClientProxy;
+import io.niceseason.rpc.core.socket.client.SocketClient;
 
-public class TestClient {
+public class TestSocketClient {
     public static void main(String[] args) {
-        RpcClientProxy proxy = new RpcClientProxy("127.0.0.1", 7);
+        RpcClient rpcClient = new SocketClient("127.0.0.1", 7);
+        RpcClientProxy proxy = new RpcClientProxy(rpcClient);
         HelloService service =  proxy.getProxy(HelloService.class);
         HelloObject object = new HelloObject(12, "zhnsgan");
         System.out.println(service.hello(object));

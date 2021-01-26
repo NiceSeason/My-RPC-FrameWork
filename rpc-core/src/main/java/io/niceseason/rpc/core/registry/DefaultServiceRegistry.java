@@ -10,12 +10,12 @@ public class DefaultServiceRegistry implements ServiceRegistry {
      * 注册表
      * 存储注册服务和对应的对象
      */
-    private final Map<String, Object> serviceMap = new ConcurrentHashMap<>();
+    public static final Map<String, Object> serviceMap = new ConcurrentHashMap<>();
 
     /**
      * 存储已经注册的服务对象
      */
-    private final Set<String> registeredService = ConcurrentHashMap.newKeySet();
+    public static final Set<String> registeredService = ConcurrentHashMap.newKeySet();
 
 
 
