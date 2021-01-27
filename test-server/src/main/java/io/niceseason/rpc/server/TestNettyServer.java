@@ -2,16 +2,13 @@ package io.niceseason.rpc.server;
 
 import io.niceseason.rpc.api.HelloService;
 import io.niceseason.rpc.core.RpcServer;
-import io.niceseason.rpc.core.netty.server.NettyServer;
-import io.niceseason.rpc.core.registry.DefaultServiceRegistry;
-import io.niceseason.rpc.core.registry.ServiceRegistry;
+import io.niceseason.rpc.core.transport.netty.server.NettyServer;
 
 public class TestNettyServer {
     public static void main(String[] args) {
-        ServiceRegistry registry = new DefaultServiceRegistry();
+        RpcServer rpcServer = new NettyServer("127.0.0.1", 7);
         HelloService helloService = new HelloServiceImpl();
-        registry.register(helloService);
-        RpcServer server = new NettyServer();
-        server.start(7);
+        rpcServer.publishService(helloService,HelloService.class);
+
     }
 }

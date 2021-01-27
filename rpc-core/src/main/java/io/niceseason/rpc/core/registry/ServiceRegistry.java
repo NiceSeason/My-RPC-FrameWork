@@ -1,18 +1,22 @@
 package io.niceseason.rpc.core.registry;
 
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+
 public interface ServiceRegistry {
 
     /**
-     * 将一个服务对象注册进注册表
-     * @param service
-     * @param <T>
+     * 根据服务名注册服务
+     * @param serviceName
+     * @param address
      */
-    <T> void register(T service);
+    void register(String serviceName, InetSocketAddress address);
 
     /**
-     * 通过服务名获得实体对象
+     * 通过服务名获取服务地址
      * @param serviceName
      * @return
      */
-    Object getService(String serviceName);
+    InetSocketAddress lookupService(String serviceName);
+
 }

@@ -1,10 +1,11 @@
-package io.niceseason.rpc.core.registry;
+package io.niceseason.rpc.core.provider;
 
+import javax.imageio.spi.ServiceRegistry;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class DefaultServiceRegistry implements ServiceRegistry {
+public class DefaultServiceProvider implements ServiceProvider {
 
     /**
      * 注册表
@@ -20,7 +21,7 @@ public class DefaultServiceRegistry implements ServiceRegistry {
 
 
     @Override
-    public synchronized <T> void register(T service) {
+    public synchronized <T> void addProvider(T service) {
         if (registeredService.contains(service.getClass().getCanonicalName())) return;
         registeredService.add(service.getClass().getCanonicalName());
         for (Class<?> anInterface : service.getClass().getInterfaces()) {
@@ -29,7 +30,7 @@ public class DefaultServiceRegistry implements ServiceRegistry {
     }
 
     @Override
-    public Object getService(String serviceName) {
+    public Object getProvider(String serviceName) {
         return serviceMap.get(serviceName);
     }
 }

@@ -1,4 +1,4 @@
-package io.niceseason.rpc.core.netty.client;
+package io.niceseason.rpc.core.transport.netty.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
@@ -11,26 +11,28 @@ import io.niceseason.rpc.common.entity.RpcResponse;
 import io.niceseason.rpc.core.RpcClient;
 import io.niceseason.rpc.core.codec.CommonDecoder;
 import io.niceseason.rpc.core.codec.CommonEncoder;
-import io.niceseason.rpc.core.serializer.JsonSerializer;
+import io.niceseason.rpc.core.registry.NacosServiceRegistry;
+import io.niceseason.rpc.core.registry.ServiceRegistry;
 import io.niceseason.rpc.core.serializer.KryoSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.logging.Handler;
+import java.net.InetSocketAddress;
 
 public class NettyClient implements RpcClient {
 
-    private String host;
-    private int port;
+
 
     private static final Logger logger = LoggerFactory.getLogger(NettyClient.class);
 
-    public NettyClient(String host, int port) {
-        this.host = host;
-        this.port = port;
-    }
 
     private static final Bootstrap bootstrap;
+
+    private final ServiceRegistry serviceRegistry;
+
+    public NettyClient() {
+        serviceRegistry = new NacosServiceRegistry();
+    }
 
     static {
         bootstrap = new Bootstrap();
@@ -53,7 +55,8 @@ public class NettyClient implements RpcClient {
     @Override
     public Object sendRequest(RpcRequest request) {
         try{
-            ChannelFuture future = bootstrap.connect(host, port).sync();
+            InetSocketAddress address = serviceRegistry.lookupService(request.getInterfaceName());
+            ChannelFuture future = bootstrap.connect(address.getHostName(), address.getPort()).sync();
             Channel channel = future.channel();
             if (channel != null) {
                 ChannelFuture future1 = channel.writeAndFlush(request);

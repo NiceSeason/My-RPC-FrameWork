@@ -1,28 +1,53 @@
-package io.niceseason.rpc.core.netty.server;
+package io.niceseason.rpc.core.transport.netty.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.niceseason.rpc.core.RpcServer;
 import io.niceseason.rpc.core.codec.CommonDecoder;
 import io.niceseason.rpc.core.codec.CommonEncoder;
-import io.niceseason.rpc.core.netty.client.NettyClient;
-import io.niceseason.rpc.core.serializer.JsonSerializer;
+import io.niceseason.rpc.core.provider.DefaultServiceProvider;
+import io.niceseason.rpc.core.provider.ServiceProvider;
+import io.niceseason.rpc.core.registry.NacosServiceRegistry;
+import io.niceseason.rpc.core.registry.ServiceRegistry;
 import io.niceseason.rpc.core.serializer.KryoSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.net.InetSocketAddress;
 
 public class NettyServer implements RpcServer {
 
     private static final Logger logger = LoggerFactory.getLogger(NettyServer.class);
 
+    private final String host;
+
+    private final int port;
+
+    private final ServiceProvider serviceProvider;
+
+    private final ServiceRegistry serviceRegistry;
+
+    public NettyServer(String host, int port) {
+        this.host = host;
+        this.port = port;
+        serviceProvider = new DefaultServiceProvider();
+        serviceRegistry = new NacosServiceRegistry();
+    }
+
     @Override
-    public void start(int port) {
+    public void publishService(Object service, Class<?> clazz) {
+        serviceProvider.addProvider(service);
+        serviceRegistry.register(clazz.getCanonicalName(), new InetSocketAddress(host, port));
+        start();
+    }
+
+    @Override
+    public void start() {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
@@ -43,7 +68,7 @@ public class NettyServer implements RpcServer {
                             pipeline.addLast(new NettyServerHandler());
                         }
                     });
-            ChannelFuture future = serverBootstrap.bind(port).sync();
+            ChannelFuture future = serverBootstrap.bind(host,port).sync();
             future.channel().closeFuture().sync();
 
         } catch (InterruptedException e) {

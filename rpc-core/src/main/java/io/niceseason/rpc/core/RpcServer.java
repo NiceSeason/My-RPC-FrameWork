@@ -2,6 +2,10 @@ package io.niceseason.rpc.core;
 
 
 public interface RpcServer {
-    void start(int port);
+
+    void start();
+
+    void publishService(Object service, Class<?> clazz);
+
 
 }

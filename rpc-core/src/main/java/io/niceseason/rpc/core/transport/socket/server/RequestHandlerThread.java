@@ -1,9 +1,9 @@
-package io.niceseason.rpc.core.socket.server;
+package io.niceseason.rpc.core.transport.socket.server;
 
 import io.niceseason.rpc.common.entity.RpcRequest;
 import io.niceseason.rpc.common.entity.RpcResponse;
 import io.niceseason.rpc.core.RequestHandler;
-import io.niceseason.rpc.core.registry.ServiceRegistry;
+import io.niceseason.rpc.core.provider.ServiceProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
@@ -18,11 +18,11 @@ public class RequestHandlerThread implements Runnable {
 
     private Socket socket;
 
-    private ServiceRegistry serviceRegistry;
+    private ServiceProvider serviceProvider;
 
 
-    public RequestHandlerThread(Socket socket, ServiceRegistry serviceRegistry) {
-        this.serviceRegistry = serviceRegistry;
+    public RequestHandlerThread(Socket socket, ServiceProvider serviceRegistry) {
+        this.serviceProvider = serviceRegistry;
         this.socket = socket;
     }
 
@@ -35,7 +35,7 @@ public class RequestHandlerThread implements Runnable {
         ) {
             RpcRequest request = (RpcRequest) in.readObject();
             String serviceName = request.getInterfaceName();
-            Object service = serviceRegistry.getService(serviceName);
+            Object service = serviceProvider.getProvider(serviceName);
             RequestHandler requestHandler = new RequestHandler();
             Object returnObject=requestHandler.handler(request, service);
             out.writeObject(RpcResponse.success(returnObject));
