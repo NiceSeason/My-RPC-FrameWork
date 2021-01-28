@@ -27,39 +27,20 @@ public class NettyClient implements RpcClient {
     private static final Logger logger = LoggerFactory.getLogger(NettyClient.class);
 
 
-    private static final Bootstrap bootstrap;
-
     private final ServiceRegistry serviceRegistry;
 
     public NettyClient() {
         serviceRegistry = new NacosServiceRegistry();
     }
 
-    static {
-        bootstrap = new Bootstrap();
-        EventLoopGroup group = new NioEventLoopGroup();
-        bootstrap.group(group)
-                .channel(NioSocketChannel.class)
-                .option(ChannelOption.SO_KEEPALIVE, true)
-                .handler(new ChannelInitializer<SocketChannel>() {
-                    @Override
-                    protected void initChannel(SocketChannel ch) throws Exception {
-                        ChannelPipeline pipeline = ch.pipeline();
-                        pipeline.addLast(new CommonDecoder())
-                                .addLast(new CommonEncoder(new KryoSerializer()))
-                                .addLast(new NettyClientHandler());
-                    }
-                });
 
-    }
 
     @Override
     public Object sendRequest(RpcRequest request) {
         try{
             InetSocketAddress address = serviceRegistry.lookupService(request.getInterfaceName());
-            ChannelFuture future = bootstrap.connect(address.getHostName(), address.getPort()).sync();
-            Channel channel = future.channel();
-            if (channel != null) {
+            Channel channel = ChannelProvider.getChannel(address, new KryoSerializer());
+            if (channel.isActive()) {
                 ChannelFuture future1 = channel.writeAndFlush(request);
                 future1.addListener((ChannelFutureListener) future2 -> {
                     if (future2.isSuccess())
@@ -72,6 +53,8 @@ public class NettyClient implements RpcClient {
                 RpcResponse response = channel.attr(key).get();
                 RpcMessageChecker.check(request,response);
                 return response;
+            }else {
+                System.exit(0);
             }
         } catch (InterruptedException e) {
             logger.error("客户端连接时发生错误:{}",e.getMessage());
