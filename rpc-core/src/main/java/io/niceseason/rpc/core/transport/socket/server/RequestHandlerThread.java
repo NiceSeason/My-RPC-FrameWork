@@ -38,7 +38,7 @@ public class RequestHandlerThread implements Runnable {
             Object service = serviceProvider.getProvider(serviceName);
             RequestHandler requestHandler = new RequestHandler();
             Object returnObject=requestHandler.handler(request, service);
-            out.writeObject(RpcResponse.success(returnObject));
+            out.writeObject(RpcResponse.success(request.getRequestId(),returnObject));
             out.flush();
         } catch (IOException | ClassNotFoundException e) {
             logger.error("调用服务器对象时有错误产生", e);

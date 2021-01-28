@@ -14,6 +14,11 @@ import java.io.Serializable;
 public class RpcRequest implements Serializable {
 
     /**
+     * 请求号
+     */
+    private String requestId;
+
+    /**
      * 调用接口名
      */
     private String interfaceName;
