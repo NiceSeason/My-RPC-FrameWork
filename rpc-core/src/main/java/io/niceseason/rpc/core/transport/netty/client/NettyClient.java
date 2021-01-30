@@ -12,12 +12,15 @@ import io.niceseason.rpc.common.util.RpcMessageChecker;
 import io.niceseason.rpc.core.RpcClient;
 import io.niceseason.rpc.core.codec.CommonDecoder;
 import io.niceseason.rpc.core.codec.CommonEncoder;
+import io.niceseason.rpc.core.registry.NacosServiceDiscovery;
 import io.niceseason.rpc.core.registry.NacosServiceRegistry;
+import io.niceseason.rpc.core.registry.ServiceDiscovery;
 import io.niceseason.rpc.core.registry.ServiceRegistry;
 import io.niceseason.rpc.core.serializer.KryoSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.xml.ws.Service;
 import java.net.InetSocketAddress;
 
 public class NettyClient implements RpcClient {
@@ -29,8 +32,11 @@ public class NettyClient implements RpcClient {
 
     private final ServiceRegistry serviceRegistry;
 
+    private final ServiceDiscovery serviceDiscovery;
+
     public NettyClient() {
         serviceRegistry = new NacosServiceRegistry();
+        serviceDiscovery = new NacosServiceDiscovery();
     }
 
 
@@ -38,7 +44,7 @@ public class NettyClient implements RpcClient {
     @Override
     public Object sendRequest(RpcRequest request) {
         try{
-            InetSocketAddress address = serviceRegistry.lookupService(request.getInterfaceName());
+            InetSocketAddress address = serviceDiscovery.lookupService(request.getInterfaceName());
             Channel channel = ChannelProvider.getChannel(address, new KryoSerializer());
             if (channel.isActive()) {
                 ChannelFuture future1 = channel.writeAndFlush(request);
