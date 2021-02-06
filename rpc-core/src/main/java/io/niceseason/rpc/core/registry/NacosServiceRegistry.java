@@ -19,16 +19,16 @@ public class NacosServiceRegistry implements ServiceRegistry{
 
 
 
-    private  final NamingService namingService;
 
 
     public NacosServiceRegistry() {
-        namingService = NacosUtils.getNamingService();
+
     }
 
     @Override
     public void register(String serviceName, InetSocketAddress address) {
-        NacosUtils.registerService(namingService, serviceName, address);
+        NacosUtils.registerService(serviceName, address);
+
     }
 
 }

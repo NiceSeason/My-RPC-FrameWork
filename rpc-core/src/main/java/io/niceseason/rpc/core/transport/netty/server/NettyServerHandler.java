@@ -4,7 +4,7 @@ import io.netty.channel.*;
 import io.netty.util.ReferenceCountUtil;
 import io.niceseason.rpc.common.entity.RpcRequest;
 import io.niceseason.rpc.common.entity.RpcResponse;
-import io.niceseason.rpc.common.util.threadpool.ThreadPoolFactoryUtils;
+import io.niceseason.rpc.common.util.ThreadPoolFactoryUtils;
 import io.niceseason.rpc.core.RequestHandler;
 import io.niceseason.rpc.core.provider.DefaultServiceProvider;
 import io.niceseason.rpc.core.provider.ServiceProvider;

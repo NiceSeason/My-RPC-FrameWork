@@ -10,6 +10,7 @@ import io.netty.handler.logging.LoggingHandler;
 import io.niceseason.rpc.core.RpcServer;
 import io.niceseason.rpc.core.codec.CommonDecoder;
 import io.niceseason.rpc.core.codec.CommonEncoder;
+import io.niceseason.rpc.core.hook.ShutDownHook;
 import io.niceseason.rpc.core.provider.DefaultServiceProvider;
 import io.niceseason.rpc.core.provider.ServiceProvider;
 import io.niceseason.rpc.core.registry.NacosServiceRegistry;
@@ -69,8 +70,8 @@ public class NettyServer implements RpcServer {
                         }
                     });
             ChannelFuture future = serverBootstrap.bind(host,port).sync();
+            ShutDownHook.getShutDownHook().addClearAllHook();
             future.channel().closeFuture().sync();
-
         } catch (InterruptedException e) {
             logger.error("启动服务器时有错误发生: ", e);
         } finally {

@@ -60,7 +60,7 @@ public class NettyClient implements RpcClient {
                 RpcMessageChecker.check(request,response);
                 return response;
             }else {
-                System.exit(0);
+                throw new IllegalStateException("channel未激活");
             }
         } catch (InterruptedException e) {
             logger.error("客户端连接时发生错误:{}",e.getMessage());

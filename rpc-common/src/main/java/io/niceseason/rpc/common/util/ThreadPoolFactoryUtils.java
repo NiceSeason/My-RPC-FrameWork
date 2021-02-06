@@ -1,4 +1,4 @@
-package io.niceseason.rpc.common.util.threadpool;
+package io.niceseason.rpc.common.util;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import lombok.extern.slf4j.Slf4j;
