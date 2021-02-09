@@ -10,12 +10,15 @@ import io.niceseason.rpc.common.exception.RpcException;
 import io.niceseason.rpc.core.codec.CommonDecoder;
 import io.niceseason.rpc.core.codec.CommonEncoder;
 import io.niceseason.rpc.core.serializer.CommonSerializer;
+import org.checkerframework.checker.units.qual.C;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.InetSocketAddress;
 import java.util.Date;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 public class ChannelProvider {
@@ -38,31 +41,30 @@ public class ChannelProvider {
                         .addLast(new NettyClientHandler());
             }
         });
-        CountDownLatch countDownLatch = new CountDownLatch(1);
+        CompletableFuture<Channel> channelCompletableFuture = new CompletableFuture<>();
+        connect(bootstrap, inetSocketAddress,channelCompletableFuture);
         try {
-            connect(bootstrap, inetSocketAddress, countDownLatch);
-            countDownLatch.await();
-        } catch (InterruptedException e) {
-            logger.error("获取channel时有错误发生:", e);
+            return channelCompletableFuture.get();
+        } catch (InterruptedException | ExecutionException e) {
+            logger.error("获取channel时有错误产生{}", e.getMessage());
+            throw new RpcException(RpcError.FAILED_TO_GET_CHANNEL);
         }
-        return channel;
     }
 
-    private static void connect(Bootstrap bootstrap, InetSocketAddress inetSocketAddress, CountDownLatch countDownLatch) {
-        connect(bootstrap, inetSocketAddress, MAX_RETRY_COUNT, countDownLatch);
+    private static void connect(Bootstrap bootstrap, InetSocketAddress inetSocketAddress, CompletableFuture<Channel> channelCompletableFuture) {
+        connect(bootstrap, inetSocketAddress, MAX_RETRY_COUNT,channelCompletableFuture);
     }
 
-    private static void connect(Bootstrap bootstrap, InetSocketAddress inetSocketAddress, int retry, CountDownLatch countDownLatch) {
+    private static void connect(Bootstrap bootstrap, InetSocketAddress inetSocketAddress, int retry, CompletableFuture<Channel> channelCompletableFuture) {
         bootstrap.connect(inetSocketAddress).addListener((ChannelFutureListener) future -> {
             if (future.isSuccess()) {
                 logger.info("客户端连接成功!");
                 channel = future.channel();
-                countDownLatch.countDown();
+                channelCompletableFuture.complete(channel);
                 return;
             }
             if (retry == 0) {
                 logger.error("客户端连接失败:重试次数已用完，放弃连接！");
-                countDownLatch.countDown();
                 throw new RpcException(RpcError.CLIENT_CONNECT_SERVER_FAILURE);
             }
             // 第几次重连
@@ -70,7 +72,7 @@ public class ChannelProvider {
             // 本次重连的间隔
             int delay = 1 << order;
             logger.error("{}: 连接失败，第 {} 次重连……", new Date(), order);
-            bootstrap.config().group().schedule(() -> connect(bootstrap, inetSocketAddress, retry - 1, countDownLatch), delay, TimeUnit
+            bootstrap.config().group().schedule(() -> connect(bootstrap, inetSocketAddress, retry - 1, channelCompletableFuture), delay, TimeUnit
                     .SECONDS);
         });
     }

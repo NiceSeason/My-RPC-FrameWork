@@ -10,21 +10,16 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 public class RpcClientProxy implements InvocationHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(RpcClientProxy.class);
 
-//    private String host;
-//
-//    private int port;
-
     private RpcClient rpcClient;
 
     public RpcClientProxy(RpcClient rpcClient) {
         this.rpcClient = rpcClient;
-//        this.host = host;
-//        this.port = port;
     }
 
     @SuppressWarnings("unchecked")
@@ -44,7 +39,7 @@ public class RpcClientProxy implements InvocationHandler {
                 .parameters(args)
                 .requestId(UUID.randomUUID().toString())
                 .build();
-        RpcResponse response = (RpcResponse) rpcClient.sendRequest(request);
+        RpcResponse response = ((CompletableFuture<RpcResponse>) rpcClient.sendRequest(request)).get();
         return response.getData();
     }
 }

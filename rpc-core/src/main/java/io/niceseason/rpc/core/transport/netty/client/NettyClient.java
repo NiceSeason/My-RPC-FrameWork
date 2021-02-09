@@ -8,6 +8,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.AttributeKey;
 import io.niceseason.rpc.common.entity.RpcRequest;
 import io.niceseason.rpc.common.entity.RpcResponse;
+import io.niceseason.rpc.common.factory.SingletonFactory;
 import io.niceseason.rpc.common.util.RpcMessageChecker;
 import io.niceseason.rpc.core.RpcClient;
 import io.niceseason.rpc.core.codec.CommonDecoder;
@@ -23,6 +24,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.xml.ws.Service;
 import java.net.InetSocketAddress;
+import java.util.concurrent.CompletableFuture;
 
 public class NettyClient implements RpcClient {
 
@@ -35,37 +37,34 @@ public class NettyClient implements RpcClient {
 
     private final ServiceDiscovery serviceDiscovery;
 
+    private final UnprocessedRequests unprocessedRequests;
+
     public NettyClient() {
         serviceRegistry = new NacosServiceRegistry();
         serviceDiscovery = new NacosServiceDiscovery(new RandomLoadBalancer());
+        unprocessedRequests = SingletonFactory.getInstance(UnprocessedRequests.class);
     }
 
 
 
     @Override
-    public Object sendRequest(RpcRequest request) {
-        try{
-            InetSocketAddress address = serviceDiscovery.lookupService(request.getInterfaceName());
-            Channel channel = ChannelProvider.getChannel(address, new KryoSerializer());
-            if (channel.isActive()) {
-                ChannelFuture future1 = channel.writeAndFlush(request);
-                future1.addListener((ChannelFutureListener) future2 -> {
-                    if (future2.isSuccess())
-                        logger.info("客户端发送消息:{}",request.toString());
-                    else
-                        logger.error("发送消息时有错误产生:{}", future1.cause());
-                });
-                channel.closeFuture().sync();
-                AttributeKey<RpcResponse> key = AttributeKey.valueOf("rpcResponse"+request.getRequestId());
-                RpcResponse response = channel.attr(key).get();
-                RpcMessageChecker.check(request,response);
-                return response;
-            }else {
-                throw new IllegalStateException("channel未激活");
-            }
-        } catch (InterruptedException e) {
-            logger.error("客户端连接时发生错误:{}",e.getMessage());
+    public CompletableFuture<RpcResponse> sendRequest(RpcRequest request) {
+        CompletableFuture<RpcResponse> completableFuture = new CompletableFuture<>();
+        InetSocketAddress address = serviceDiscovery.lookupService(request.getInterfaceName());
+        Channel channel = ChannelProvider.getChannel(address, new KryoSerializer());
+        if (channel.isActive()) {
+            unprocessedRequests.put(request.getRequestId(), completableFuture);
+            channel.writeAndFlush(request).addListener((ChannelFutureListener) future -> {
+                if (future.isSuccess()) {
+                    logger.info("客户端发送消息:{}", request.toString());
+                } else {
+                    completableFuture.completeExceptionally(future.cause());
+                    logger.error("发送消息时有错误产生:{}", future.cause());
+                }
+            });
+        }else {
+            throw new IllegalStateException("channel未激活");
         }
-        return null;
+        return completableFuture;
     }
 }
