@@ -12,6 +12,7 @@ import io.niceseason.rpc.common.util.RpcMessageChecker;
 import io.niceseason.rpc.core.RpcClient;
 import io.niceseason.rpc.core.codec.CommonDecoder;
 import io.niceseason.rpc.core.codec.CommonEncoder;
+import io.niceseason.rpc.core.loadbalancer.RandomLoadBalancer;
 import io.niceseason.rpc.core.registry.NacosServiceDiscovery;
 import io.niceseason.rpc.core.registry.NacosServiceRegistry;
 import io.niceseason.rpc.core.registry.ServiceDiscovery;
@@ -36,7 +37,7 @@ public class NettyClient implements RpcClient {
 
     public NettyClient() {
         serviceRegistry = new NacosServiceRegistry();
-        serviceDiscovery = new NacosServiceDiscovery();
+        serviceDiscovery = new NacosServiceDiscovery(new RandomLoadBalancer());
     }
 
 

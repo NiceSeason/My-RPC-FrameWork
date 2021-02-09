@@ -44,7 +44,7 @@ public class NettyServer implements RpcServer {
     public void publishService(Object service, Class<?> clazz) {
         serviceProvider.addProvider(service);
         serviceRegistry.register(clazz.getCanonicalName(), new InetSocketAddress(host, port));
-//        start();
+        start();
     }
 
     @Override
