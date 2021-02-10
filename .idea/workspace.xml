@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf49a049-4b20-4ce5-ad0c-821737c93fb8" name="Default Changelist" comment="" />
+    <list default="true" id="bf49a049-4b20-4ce5-ad0c-821737c93fb8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/test-client/src/main/java/io/niceseason/rpc/client/TestNettyClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/test-client/src/main/java/io/niceseason/rpc/client/TestNettyClient.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,10 +26,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Interface" />
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -47,6 +55,9 @@
     <option name="vmOptions" value="-DarchetypeCatalog=internal" />
   </component>
   <component name="ProjectId" id="1nHVZhEbwwGp7bZSf3AOPY4IjQX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -56,28 +67,33 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/rpc-api/src/main/java/io/niceseason/rpc/api" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Works\Softwares\Programe\IDEA\MyRpc-Framework\java-demo\src\main\java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="io.niceseason.rpc.common.util" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Works\Softwares\Programe\IDEA\MyRpc-Framework\rpc-api\src\main\java\io\niceseason\rpc\api" />
       <recent name="D:\Works\Softwares\Programe\IDEA\MyRpc-Framework\src\main\resources" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Works\Softwares\Programe\IDEA\MyRpc-Framework\java-demo\src\main\java" />
-    </key>
   </component>
-  <component name="RunManager" selected="Application.TestClient">
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.demo.proxy.Client" />
+  <component name="RunManager" selected="Application.TestNettyServer">
+    <configuration name="EchoClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.demo.netty.EchoClient" />
       <module name="java-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="io.niceseason.rpc.demo.proxy.*" />
+          <option name="PATTERN" value="io.niceseason.rpc.demo.netty.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -85,12 +101,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RpcDemoClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.demo.simpleRpc.RpcDemoClient" />
+    <configuration name="EchoServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.demo.netty.EchoServer" />
       <module name="java-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="io.niceseason.rpc.demo.simpleRpc.*" />
+          <option name="PATTERN" value="io.niceseason.rpc.demo.netty.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -98,22 +114,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RpcDemoServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.demo.simpleRpc.RpcDemoServer" />
-      <module name="java-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.niceseason.rpc.demo.simpleRpc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.client.TestClient" />
-      <module name="rpc-client" />
+    <configuration name="TestNettyClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.client.TestNettyClient" />
+      <module name="test-client" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="io.niceseason.rpc.client.*" />
@@ -124,9 +127,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.server.TestServer" />
-      <module name="rpc-server" />
+    <configuration name="TestNettyServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.server.TestNettyServer" />
+      <module name="test-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.niceseason.rpc.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestNettyServer2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.niceseason.rpc.server.TestNettyServer2" />
+      <module name="test-server" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="io.niceseason.rpc.server.*" />
@@ -139,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestClient" />
-        <item itemvalue="Application.TestServer" />
-        <item itemvalue="Application.RpcDemoClient" />
-        <item itemvalue="Application.RpcDemoServer" />
-        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.TestNettyServer" />
+        <item itemvalue="Application.TestNettyClient" />
+        <item itemvalue="Application.EchoClient" />
+        <item itemvalue="Application.EchoServer" />
+        <item itemvalue="Application.TestNettyServer2" />
       </list>
     </recent_temporary>
   </component>
@@ -165,14 +181,197 @@
       <workItem from="1611222799956" duration="1791000" />
       <workItem from="1611316351674" duration="144000" />
       <workItem from="1611316506650" duration="1546000" />
-      <workItem from="1611365944332" duration="326000" />
+      <workItem from="1611365944332" duration="814000" />
+      <workItem from="1611366767678" duration="5122000" />
+      <workItem from="1611371905636" duration="2305000" />
+      <workItem from="1611395741628" duration="6104000" />
+      <workItem from="1611460450390" duration="1458000" />
+      <workItem from="1611546185279" duration="4308000" />
+      <workItem from="1611570579489" duration="1606000" />
+      <workItem from="1611573289535" duration="4960000" />
+      <workItem from="1611634677746" duration="3412000" />
+      <workItem from="1611644626738" duration="4935000" />
+      <workItem from="1611653522696" duration="1895000" />
+      <workItem from="1611742350422" duration="1491000" />
+      <workItem from="1611830950532" duration="5492000" />
+      <workItem from="1611836523232" duration="116000" />
+      <workItem from="1611836650326" duration="96000" />
+      <workItem from="1612015032655" duration="6031000" />
+      <workItem from="1612072434833" duration="340000" />
+      <workItem from="1612316835115" duration="5038000" />
+      <workItem from="1612334247566" duration="1539000" />
+      <workItem from="1612487561008" duration="4813000" />
+      <workItem from="1612581131435" duration="438000" />
+      <workItem from="1612581582234" duration="2032000" />
+      <workItem from="1612584149957" duration="352000" />
+      <workItem from="1612784366134" duration="604000" />
+      <workItem from="1612837105179" duration="2342000" />
+      <workItem from="1612839591783" duration="10051000" />
+      <workItem from="1612889795991" duration="1725000" />
+      <workItem from="1612926898050" duration="1677000" />
+      <workItem from="1612943613441" duration="336000" />
+      <workItem from="1612947793919" duration="1126000" />
+      <workItem from="1612948932671" duration="8324000" />
+      <workItem from="1612965799251" duration="764000" />
     </task>
+    <task id="LOCAL-00001" summary="[v1] 使用动态代理和bio实现最基本rpc">
+      <created>1611369220746</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611369220746</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[v2] 使用容器作为注册表实现多个服务注册">
+      <created>1611373344380</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1611373344380</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[v3] 使用netty进行请求的网络传输实现远程调用">
+      <created>1611645893109</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611645893109</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[v4] 使用kryo进行对象序列化">
+      <created>1611648296719</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611648296719</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[v5] 使用nacos作为注册中心进行服务注册和发现">
+      <created>1611742447981</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1611742447981</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[v5.1] 为请求添加请求号requestId">
+      <created>1611834213968</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611834213968</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[v5.2] 加入netty重连机制并抽取ChannelProvider">
+      <created>1611836698851</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1611836698851</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[v5.4] 抽取出NacosUtils工具类和ServiceDiscovery接口">
+      <created>1612016907951</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1612016907951</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[v5.5] 创建线程池工具类ThreadPoolFactoryUtils并优化服务器Handler">
+      <created>1612334792224</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1612334792224</updated>
+    </task>
+    <task id="LOCAL-00010" summary="[v5.6] 增加钩子ShutDownHook,服务关闭时注销服务及线程池">
+      <created>1612581808308</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1612581808308</updated>
+    </task>
+    <task id="LOCAL-00011" summary="[v6.0] 增加负载均衡接口LoadBalancer并实现随机和轮询实现">
+      <created>1612840253244</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1612840253244</updated>
+    </task>
+    <task id="LOCAL-00012" summary="[v6.1] 使用CompletableFuture和单例工厂优化代码">
+      <created>1612880420626</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1612880420626</updated>
+    </task>
+    <task id="LOCAL-00013" summary="[v6.2] 增加心跳机制，30s客户端未发送心跳包则断开连接">
+      <created>1612949999763</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1612949999763</updated>
+    </task>
+    <task id="LOCAL-00014" summary="[v6.3] 优化ChannelProvider,复用channel">
+      <created>1612950935547</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1612950935547</updated>
+    </task>
+    <task id="LOCAL-00015" summary="[v7.0] 使用注解进行服务注册">
+      <created>1612963350961</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1612963350961</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[v1] 使用动态代理和bio实现最基本rpc" />
+    <MESSAGE value="[v2] 使用容器作为注册表实现多个服务注册" />
+    <MESSAGE value="[v3] 使用netty进行请求的网络传输实现远程调用" />
+    <MESSAGE value="[v4] 使用kryo进行对象序列化" />
+    <MESSAGE value="[v5] 使用nacos作为注册中心进行服务注册和发现" />
+    <MESSAGE value="[v5.1] 为请求添加请求号requestId" />
+    <MESSAGE value="[v5.2] 加入netty重连机制并抽取ChannelProvider" />
+    <MESSAGE value="[v5.3] 抽取出NacosUtils工具类和ServiceDiscovery接口" />
+    <MESSAGE value="[v5.4] 抽取出NacosUtils工具类和ServiceDiscovery接口" />
+    <MESSAGE value="[v5.5] 创建线程池工具类ThreadPoolFactoryUtils并优化服务器Handler" />
+    <MESSAGE value="[v5.6] 增加钩子ShutDownHook,服务关闭时注销服务及线程池" />
+    <MESSAGE value="[v6.0] 增加负载均衡接口LoadBalancer并实现随机和轮询实现" />
+    <MESSAGE value="[v6.1] 使用CompletableFuture和单例工厂优化代码" />
+    <MESSAGE value="[v6.2] 增加心跳机制，30s客户端未发送心跳包则断开连接" />
+    <MESSAGE value="[v6.3] 优化ChannelProvider,复用channel" />
+    <MESSAGE value="[v7.0] 使用注解进行服务注册" />
+    <option name="LAST_COMMIT_MESSAGE" value="[v7.0] 使用注解进行服务注册" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="233" y="39" key="#Inspections" timestamp="1611637212702">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="233" y="39" key="#Inspections/0.0.1280.760@0.0.1280.760" timestamp="1611637212702" />
     <state x="233" y="39" key="#Project_Structure" timestamp="1611117830946">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
@@ -185,71 +384,115 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="96" y="35" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.760@0.0.1280.760" timestamp="1611224178269" />
-    <state x="446" y="90" key="#com.intellij.ide.util.MemberChooser" timestamp="1611317448160">
+    <state x="446" y="90" key="#com.intellij.ide.util.MemberChooser" timestamp="1612962446566">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="446" y="90" key="#com.intellij.ide.util.MemberChooser/0.0.1280.760@0.0.1280.760" timestamp="1611317448160" />
-    <state x="400" y="305" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1611228589344">
+    <state x="446" y="90" key="#com.intellij.ide.util.MemberChooser/0.0.1280.760@0.0.1280.760" timestamp="1612962446566" />
+    <state x="216" y="305" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1612958583633">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="400" y="305" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.760@0.0.1280.760" timestamp="1611228589344" />
-    <state width="1238" height="190" key="GridCell.Tab.0.bottom" timestamp="1611366285349">
+    <state x="216" y="305" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.760@0.0.1280.760" timestamp="1612958583633" />
+    <state x="394" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1612874646789">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state width="1238" height="190" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1611366285349" />
-    <state width="1238" height="190" key="GridCell.Tab.0.center" timestamp="1611366285349">
+    <state x="394" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.760@0.0.1280.760" timestamp="1612874646789" />
+    <state x="364" y="216" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1611645677100">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state width="1238" height="190" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1611366285349" />
-    <state width="1238" height="190" key="GridCell.Tab.0.left" timestamp="1611366285349">
+    <state x="364" y="216" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.760@0.0.1280.760" timestamp="1611645677100" />
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1612967745618">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state width="1238" height="190" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1611366285349" />
-    <state width="1238" height="190" key="GridCell.Tab.0.right" timestamp="1611366285349">
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.760@0.0.1280.760" timestamp="1612967745618" />
+    <state width="1238" height="232" key="GridCell.Tab.0.bottom" timestamp="1612963378123">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state width="1238" height="190" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1611366285349" />
-    <state width="1238" height="232" key="GridCell.Tab.1.bottom" timestamp="1611318054003">
+    <state width="1238" height="232" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1612963378123" />
+    <state width="1238" height="232" key="GridCell.Tab.0.center" timestamp="1612963378123">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state width="1238" height="232" key="GridCell.Tab.1.bottom/0.0.1280.760@0.0.1280.760" timestamp="1611318054003" />
-    <state width="1238" height="232" key="GridCell.Tab.1.center" timestamp="1611318054002">
+    <state width="1238" height="232" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1612963378123" />
+    <state width="1238" height="232" key="GridCell.Tab.0.left" timestamp="1612963378123">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state width="1238" height="232" key="GridCell.Tab.1.center/0.0.1280.760@0.0.1280.760" timestamp="1611318054002" />
-    <state width="1238" height="232" key="GridCell.Tab.1.left" timestamp="1611318054002">
+    <state width="1238" height="232" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1612963378123" />
+    <state width="1238" height="232" key="GridCell.Tab.0.right" timestamp="1612963378123">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state width="1238" height="232" key="GridCell.Tab.1.left/0.0.1280.760@0.0.1280.760" timestamp="1611318054002" />
-    <state width="1238" height="232" key="GridCell.Tab.1.right" timestamp="1611318054002">
+    <state width="1238" height="232" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1612963378123" />
+    <state width="1238" height="232" key="GridCell.Tab.1.bottom" timestamp="1612963378123">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state width="1238" height="232" key="GridCell.Tab.1.right/0.0.1280.760@0.0.1280.760" timestamp="1611318054002" />
+    <state width="1238" height="232" key="GridCell.Tab.1.bottom/0.0.1280.760@0.0.1280.760" timestamp="1612963378123" />
+    <state width="1238" height="232" key="GridCell.Tab.1.center" timestamp="1612963378123">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="232" key="GridCell.Tab.1.center/0.0.1280.760@0.0.1280.760" timestamp="1612963378123" />
+    <state width="1238" height="232" key="GridCell.Tab.1.left" timestamp="1612963378123">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="232" key="GridCell.Tab.1.left/0.0.1280.760@0.0.1280.760" timestamp="1612963378123" />
+    <state width="1238" height="232" key="GridCell.Tab.1.right" timestamp="1612963378123">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="232" key="GridCell.Tab.1.right/0.0.1280.760@0.0.1280.760" timestamp="1612963378123" />
+    <state x="171" y="35" key="Maven.ArtifactSearchDialog" timestamp="1611831597923">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="171" y="35" key="Maven.ArtifactSearchDialog/0.0.1280.760@0.0.1280.760" timestamp="1611831597923" />
+    <state x="347" y="91" key="RollbackChangesDialog" timestamp="1612889214571">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="347" y="91" key="RollbackChangesDialog/0.0.1280.760@0.0.1280.760" timestamp="1612889214571" />
+    <state x="369" y="128" width="591" height="524" key="StructurePopup" timestamp="1611570869266">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="369" y="128" width="591" height="524" key="StructurePopup/0.0.1280.760@0.0.1280.760" timestamp="1611570869266" />
+    <state x="233" y="113" key="Vcs.Push.Dialog.v2" timestamp="1612967554223">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="233" y="113" key="Vcs.Push.Dialog.v2/0.0.1280.760@0.0.1280.760" timestamp="1612967554223" />
+    <state x="436" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612889199275">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="436" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.760@0.0.1280.760" timestamp="1612889199275" />
     <state x="405" y="83" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1611316377166">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="405" y="83" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1280.760@0.0.1280.760" timestamp="1611316377166" />
+    <state x="371" y="134" key="extract.method.dialog" timestamp="1612948617206">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="371" y="134" key="extract.method.dialog/0.0.1280.760@0.0.1280.760" timestamp="1612948617206" />
     <state x="6" y="75" key="new project wizard" timestamp="1611115586303">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="6" y="75" key="new project wizard/0.0.1280.760@0.0.1280.760" timestamp="1611115586303" />
-    <state x="306" y="85" width="672" height="678" key="search.everywhere.popup" timestamp="1611203743841">
+    <state x="383" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1612016484077">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="306" y="85" width="672" height="678" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1611203743841" />
+    <state x="383" y="0" key="refactoring.ChangeSignatureDialog/0.0.1280.760@0.0.1280.760" timestamp="1612016484077" />
+    <state x="304" y="177" key="run.anything.popup" timestamp="1612959906979">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="304" y="177" key="run.anything.popup/0.0.1280.760@0.0.1280.760" timestamp="1612959906979" />
+    <state x="311" y="90" width="672" height="678" key="search.everywhere.popup" timestamp="1612320662669">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="311" y="90" width="672" height="678" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1612320662669" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/rpc-core/src/main/java/io/niceseason/rpc/core/server/WorkThread.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/java-demo/src/main/java/io/niceseason/rpc/demo/simpleRpc/RpcDemoClient.java</url>
           <line>28</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rpc-core/src/main/java/io/niceseason/rpc/core/remoting/transport/AbstractRpcServer.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
