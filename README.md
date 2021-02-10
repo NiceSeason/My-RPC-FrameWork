@@ -32,7 +32,7 @@ My-RPC-Framework 是一款基于 Nacos 实现的 RPC 框架。使用 Netty进行
 
 [【Netty】(8）---理解ChannelPipeline ](https://www.cnblogs.com/qdhxhz/p/10234908.html)
 
-[**netty的option和childOption区别**](https://g.yuque.com/simonalong/jishu/wwe8f1)
+[netty的option和childOption区别](https://g.yuque.com/simonalong/jishu/wwe8f1)
 
 ### 其他
 

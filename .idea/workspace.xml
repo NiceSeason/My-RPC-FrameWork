@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf49a049-4b20-4ce5-ad0c-821737c93fb8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/test-client/src/main/java/io/niceseason/rpc/client/TestNettyClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/test-client/src/main/java/io/niceseason/rpc/client/TestNettyClient.java" afterDir="false" />
-    </list>
+    <list default="true" id="bf49a049-4b20-4ce5-ad0c-821737c93fb8" name="Default Changelist" comment="addReadme" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -212,7 +210,7 @@
       <workItem from="1612943613441" duration="336000" />
       <workItem from="1612947793919" duration="1126000" />
       <workItem from="1612948932671" duration="8324000" />
-      <workItem from="1612965799251" duration="764000" />
+      <workItem from="1612965799251" duration="1312000" />
     </task>
     <task id="LOCAL-00001" summary="[v1] 使用动态代理和bio实现最基本rpc">
       <created>1611369220746</created>
@@ -319,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612963350961</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="addReadme">
+      <created>1612967540367</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1612967540367</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,7 +370,8 @@
     <MESSAGE value="[v6.2] 增加心跳机制，30s客户端未发送心跳包则断开连接" />
     <MESSAGE value="[v6.3] 优化ChannelProvider,复用channel" />
     <MESSAGE value="[v7.0] 使用注解进行服务注册" />
-    <option name="LAST_COMMIT_MESSAGE" value="[v7.0] 使用注解进行服务注册" />
+    <MESSAGE value="addReadme" />
+    <option name="LAST_COMMIT_MESSAGE" value="addReadme" />
   </component>
   <component name="WindowStateProjectService">
     <state x="233" y="39" key="#Inspections" timestamp="1611637212702">
@@ -400,10 +406,10 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="364" y="216" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.760@0.0.1280.760" timestamp="1611645677100" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1612967745618">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1612967767349">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.760@0.0.1280.760" timestamp="1612967745618" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.760@0.0.1280.760" timestamp="1612967767349" />
     <state width="1238" height="232" key="GridCell.Tab.0.bottom" timestamp="1612963378123">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
@@ -448,10 +454,10 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="369" y="128" width="591" height="524" key="StructurePopup/0.0.1280.760@0.0.1280.760" timestamp="1611570869266" />
-    <state x="233" y="113" key="Vcs.Push.Dialog.v2" timestamp="1612967554223">
+    <state x="233" y="113" key="Vcs.Push.Dialog.v2" timestamp="1612967827165">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="233" y="113" key="Vcs.Push.Dialog.v2/0.0.1280.760@0.0.1280.760" timestamp="1612967554223" />
+    <state x="233" y="113" key="Vcs.Push.Dialog.v2/0.0.1280.760@0.0.1280.760" timestamp="1612967827165" />
     <state x="436" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612889199275">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
