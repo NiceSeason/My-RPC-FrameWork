@@ -2,11 +2,13 @@ package io.niceseason.rpc.demo.netty;
 
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.timeout.IdleStateHandler;
+
+import java.util.concurrent.TimeUnit;
 
 public class EchoServer {
     public static void main(String[] args) {
@@ -18,7 +20,14 @@ public class EchoServer {
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup, workGroup)
                     .channel(NioServerSocketChannel.class)
-                    .childHandler(new EchoServerHandler())
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
+                        @Override
+                        protected void initChannel(SocketChannel socketChannel) throws Exception {
+                            ChannelPipeline pipeline = socketChannel.pipeline();
+                            pipeline.addLast(new IdleStateHandler(5, 5, 5, TimeUnit.SECONDS))
+                                    .addLast(new EchoServerHandler());
+                        }
+                    })
                     //服务端接受连接的队列长度
                     .option(ChannelOption.SO_BACKLOG, 128)
                     //Socket参数，连接保活，默认值为False。启用该功能时，TCP会主动探测空闲连接的有效性。

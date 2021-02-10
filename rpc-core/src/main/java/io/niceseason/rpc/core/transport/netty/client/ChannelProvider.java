@@ -5,6 +5,7 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.timeout.IdleStateHandler;
 import io.niceseason.rpc.common.enumeration.RpcError;
 import io.niceseason.rpc.common.exception.RpcException;
 import io.niceseason.rpc.core.codec.CommonDecoder;
@@ -36,7 +37,8 @@ public class ChannelProvider {
             protected void initChannel(SocketChannel ch) {
                 /*自定义序列化编解码器*/
                 // RpcResponse -> ByteBuf
-                ch.pipeline().addLast(new CommonEncoder(serializer))
+                ch.pipeline().addLast(new IdleStateHandler(0, 5, 0, TimeUnit.SECONDS))
+                        .addLast(new CommonEncoder(serializer))
                         .addLast(new CommonDecoder())
                         .addLast(new NettyClientHandler());
             }

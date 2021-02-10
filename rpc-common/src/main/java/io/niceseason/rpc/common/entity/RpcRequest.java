@@ -1,16 +1,13 @@
 package io.niceseason.rpc.common.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Getter
+@Data
 public class RpcRequest implements Serializable {
 
     /**
@@ -37,4 +34,9 @@ public class RpcRequest implements Serializable {
      * 方法参数
      */
     private Object[] parameters;
+
+    /**
+     * 是否是心跳包
+     */
+    private boolean heart;
 }

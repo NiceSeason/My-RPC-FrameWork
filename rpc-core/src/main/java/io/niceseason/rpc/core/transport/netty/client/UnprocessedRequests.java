@@ -18,7 +18,7 @@ public class UnprocessedRequests {
         unprocessedRequestFutures.remove(requestId);
     }
 
-    public void Complete(RpcResponse response) {
+    public void complete(RpcResponse response) {
         CompletableFuture<RpcResponse> future = unprocessedRequestFutures.remove(response.getRequestId());
         if (future != null) {
             future.complete(response);
