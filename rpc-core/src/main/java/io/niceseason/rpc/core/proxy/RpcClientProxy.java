@@ -1,8 +1,9 @@
-package io.niceseason.rpc.core;
+package io.niceseason.rpc.core.proxy;
 
 
 import io.niceseason.rpc.common.entity.RpcRequest;
 import io.niceseason.rpc.common.entity.RpcResponse;
+import io.niceseason.rpc.core.remoting.transport.RpcClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

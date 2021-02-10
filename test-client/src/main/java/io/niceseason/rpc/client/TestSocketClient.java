@@ -4,9 +4,9 @@ import io.niceseason.rpc.api.Book;
 import io.niceseason.rpc.api.BookStore;
 import io.niceseason.rpc.api.HelloObject;
 import io.niceseason.rpc.api.HelloService;
-import io.niceseason.rpc.core.RpcClient;
-import io.niceseason.rpc.core.RpcClientProxy;
-import io.niceseason.rpc.core.transport.socket.client.SocketClient;
+import io.niceseason.rpc.core.remoting.transport.RpcClient;
+import io.niceseason.rpc.core.proxy.RpcClientProxy;
+import io.niceseason.rpc.core.remoting.transport.socket.client.SocketClient;
 
 public class TestSocketClient {
     public static void main(String[] args) {

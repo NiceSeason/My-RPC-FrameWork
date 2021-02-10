@@ -1,9 +1,5 @@
 package io.niceseason.rpc.server;
 
-import io.niceseason.rpc.api.BookStore;
-import io.niceseason.rpc.api.HelloService;
-import io.niceseason.rpc.core.RpcServer;
-
 public class TestSocketServer {
 //    public static void main(String[] args) {
 //        HelloService service = new HelloServiceImpl();

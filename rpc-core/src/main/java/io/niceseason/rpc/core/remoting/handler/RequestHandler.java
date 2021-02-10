@@ -1,4 +1,4 @@
-package io.niceseason.rpc.core;
+package io.niceseason.rpc.core.remoting.handler;
 
 import io.niceseason.rpc.common.entity.RpcRequest;
 import io.niceseason.rpc.common.entity.RpcResponse;

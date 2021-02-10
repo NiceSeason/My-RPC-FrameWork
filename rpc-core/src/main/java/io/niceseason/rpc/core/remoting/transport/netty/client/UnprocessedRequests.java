@@ -1,6 +1,5 @@
-package io.niceseason.rpc.core.transport.netty.client;
+package io.niceseason.rpc.core.remoting.transport.netty.client;
 
-import io.niceseason.rpc.common.entity.RpcRequest;
 import io.niceseason.rpc.common.entity.RpcResponse;
 
 import java.util.concurrent.CompletableFuture;

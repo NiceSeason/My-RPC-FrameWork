@@ -1,4 +1,4 @@
-package io.niceseason.rpc.core.transport.netty.server;
+package io.niceseason.rpc.core.remoting.transport.netty.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -8,7 +8,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
-import io.niceseason.rpc.core.RpcServer;
+import io.niceseason.rpc.core.remoting.transport.AbstractRpcServer;
+import io.niceseason.rpc.core.remoting.transport.RpcServer;
 import io.niceseason.rpc.core.codec.CommonDecoder;
 import io.niceseason.rpc.core.codec.CommonEncoder;
 import io.niceseason.rpc.core.hook.ShutDownHook;
@@ -20,34 +21,21 @@ import io.niceseason.rpc.core.serializer.KryoSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
 
-public class NettyServer implements RpcServer {
+public class NettyServer extends AbstractRpcServer {
 
     private static final Logger logger = LoggerFactory.getLogger(NettyServer.class);
-
-    private final String host;
-
-    private final int port;
-
-    private final ServiceProvider serviceProvider;
-
-    private final ServiceRegistry serviceRegistry;
 
     public NettyServer(String host, int port) {
         this.host = host;
         this.port = port;
         serviceProvider = new DefaultServiceProvider();
         serviceRegistry = new NacosServiceRegistry();
+        scanServices();
     }
 
-    @Override
-    public void publishService(Object service, Class<?> clazz) {
-        serviceProvider.addProvider(service);
-        serviceRegistry.register(clazz.getCanonicalName(), new InetSocketAddress(host, port));
-        start();
-    }
+
 
     @Override
     public void start() {

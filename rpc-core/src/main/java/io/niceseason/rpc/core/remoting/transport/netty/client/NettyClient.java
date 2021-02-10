@@ -1,34 +1,23 @@
-package io.niceseason.rpc.core.transport.netty.client;
+package io.niceseason.rpc.core.remoting.transport.netty.client;
 
-import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
-import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
-import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.util.AttributeKey;
 import io.niceseason.rpc.common.entity.RpcRequest;
 import io.niceseason.rpc.common.entity.RpcResponse;
 import io.niceseason.rpc.common.factory.SingletonFactory;
-import io.niceseason.rpc.common.util.RpcMessageChecker;
-import io.niceseason.rpc.core.RpcClient;
-import io.niceseason.rpc.core.codec.CommonDecoder;
-import io.niceseason.rpc.core.codec.CommonEncoder;
 import io.niceseason.rpc.core.loadbalancer.RandomLoadBalancer;
 import io.niceseason.rpc.core.registry.NacosServiceDiscovery;
 import io.niceseason.rpc.core.registry.NacosServiceRegistry;
 import io.niceseason.rpc.core.registry.ServiceDiscovery;
 import io.niceseason.rpc.core.registry.ServiceRegistry;
+import io.niceseason.rpc.core.remoting.transport.RpcClient;
 import io.niceseason.rpc.core.serializer.KryoSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.xml.ws.Service;
 import java.net.InetSocketAddress;
 import java.util.concurrent.CompletableFuture;
 
 public class NettyClient implements RpcClient {
-
-
 
     private static final Logger logger = LoggerFactory.getLogger(NettyClient.class);
 

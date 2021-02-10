@@ -2,7 +2,9 @@ package io.niceseason.rpc.server;
 
 import io.niceseason.rpc.api.Book;
 import io.niceseason.rpc.api.BookStore;
+import io.niceseason.rpc.core.annotation.RpcService;
 
+@RpcService
 public class BookStoreImpl implements BookStore {
     @Override
     public String saleBook(Book book) {

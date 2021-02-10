@@ -1,13 +1,4 @@
-package io.niceseason.rpc.core.transport.socket.server;
-
-import io.niceseason.rpc.core.RpcServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.concurrent.*;
+package io.niceseason.rpc.core.remoting.transport.socket.server;
 
 //public class SocketServer implements RpcServer {
 //

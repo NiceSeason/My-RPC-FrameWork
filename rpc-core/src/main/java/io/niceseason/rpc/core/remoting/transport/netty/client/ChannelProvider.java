@@ -1,4 +1,4 @@
-package io.niceseason.rpc.core.transport.netty.client;
+package io.niceseason.rpc.core.remoting.transport.netty.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
@@ -11,7 +11,6 @@ import io.niceseason.rpc.common.exception.RpcException;
 import io.niceseason.rpc.core.codec.CommonDecoder;
 import io.niceseason.rpc.core.codec.CommonEncoder;
 import io.niceseason.rpc.core.serializer.CommonSerializer;
-import org.checkerframework.checker.units.qual.C;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
