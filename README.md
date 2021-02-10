@@ -98,8 +98,6 @@ My-RPC-Framework 是一款基于 Nacos 实现的 RPC 框架。使用 Netty进行
 ### 定义调用接口
 
 ```java
-package top.guoziyang.rpc.api;
-
 public interface HelloService {
     String hello(String name);
 }
