@@ -12,8 +12,6 @@ public class TestNettyClient {
         RpcClientProxy proxy = new RpcClientProxy(client);
         HelloService proxy1 = proxy.getProxy(HelloService.class);
         HelloObject object = new HelloObject(1, "sada");
-//        for (int i = 0; i < 10; i++) {
-            System.out.println(proxy1.hello(object));
-//        }
+        System.out.println(proxy1.hello(object));
     }
 }
