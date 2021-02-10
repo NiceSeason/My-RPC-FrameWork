@@ -17,10 +17,8 @@ import org.slf4j.LoggerFactory;
 
 import java.net.InetSocketAddress;
 import java.util.Date;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
+import java.util.Map;
+import java.util.concurrent.*;
 
 public class ChannelProvider {
 
@@ -28,10 +26,14 @@ public class ChannelProvider {
     private static EventLoopGroup eventLoopGroup;
     private static Bootstrap bootstrap = initializeBootstrap();
 
+    private static final Map<String, Channel> CHANNEL_MAP = new ConcurrentHashMap<>();
+
     private static final int MAX_RETRY_COUNT = 5;
-    private static Channel channel = null;
 
     public static Channel getChannel(InetSocketAddress inetSocketAddress, CommonSerializer serializer) {
+        String key = inetSocketAddress.toString() + serializer.getCode();
+        Channel ch = CHANNEL_MAP.get(key);
+        if (ch!=null&&ch.isActive()) return ch;
         bootstrap.handler(new ChannelInitializer<SocketChannel>() {
             @Override
             protected void initChannel(SocketChannel ch) {
@@ -46,7 +48,9 @@ public class ChannelProvider {
         CompletableFuture<Channel> channelCompletableFuture = new CompletableFuture<>();
         connect(bootstrap, inetSocketAddress,channelCompletableFuture);
         try {
-            return channelCompletableFuture.get();
+            Channel channel = channelCompletableFuture.get();
+            CHANNEL_MAP.put(key, channel);
+            return channel;
         } catch (InterruptedException | ExecutionException e) {
             logger.error("获取channel时有错误产生{}", e.getMessage());
             throw new RpcException(RpcError.FAILED_TO_GET_CHANNEL);
@@ -61,7 +65,7 @@ public class ChannelProvider {
         bootstrap.connect(inetSocketAddress).addListener((ChannelFutureListener) future -> {
             if (future.isSuccess()) {
                 logger.info("客户端连接成功!");
-                channel = future.channel();
+                Channel channel = future.channel();
                 channelCompletableFuture.complete(channel);
                 return;
             }

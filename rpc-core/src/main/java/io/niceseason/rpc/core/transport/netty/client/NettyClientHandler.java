@@ -33,7 +33,7 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<RpcResponse>
             IdleStateEvent event = (IdleStateEvent) evt;
             if (event.state() == IdleState.WRITER_IDLE) {
                 Channel channel = ctx.channel();
-                logger.info("[{}]准备向客户端心跳包,客户端地址:{}", DateFormatter.format(new Date()), channel.remoteAddress());
+                logger.info("[{}]准备向服务端心跳包服务端地址:{}", DateFormatter.format(new Date()), channel.remoteAddress());
                 sendHeart(channel);
             }
         } else {
